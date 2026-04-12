@@ -4,7 +4,14 @@ pageClass: home
 
 # 《龙场OS》
 
-<div class="home-hero" role="img" aria-label="Header image: LCOS cover art (452.png)"></div>
+<img
+  class="home-hero-img"
+  src="../images/452.png"
+  alt="龙场OS 头图（452.png）"
+  width="1122"
+  height="1402"
+  decoding="async"
+/>
 
 以阳明心学为 ground truth 的 agentic operating system 研究书稿。
 
