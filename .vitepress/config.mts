@@ -35,12 +35,15 @@ function getBookItems(): BookItem[] {
     })
 }
 
-const bookItems = getBookItems()
-const guideItems = bookItems.filter((item) => item.order <= 1)
-const volumeItems = bookItems.filter((item) => item.order >= 2 && item.order <= 19)
-const appendixItems = bookItems.filter((item) => item.order >= 20)
-const firstChapterLink =
-  bookItems.slice().sort((a, b) => a.order - b.order)[0]?.link ?? '/00-序卷-名法与写法'
+const bookItems = getBookItems().sort((a, b) => a.order - b.order)
+
+function itemsByOrderRange(min: number, max: number): DefaultTheme.SidebarItem[] {
+  return bookItems.filter((item) => item.order >= min && item.order <= max)
+}
+
+/** 与母稿「四大章」分界对齐：卷五收口、卷八为第二章中枢、卷十三起第三章、卷廿起第四章。 */
+const prefaceItem = bookItems.filter((item) => item.order === 0)
+const firstChapterLink = prefaceItem[0]?.link ?? '/00-序卷-名法与写法'
 
 export default defineConfig({
   markdown: {
@@ -68,16 +71,28 @@ export default defineConfig({
     ],
     sidebar: [
       {
-        text: '导读',
-        items: guideItems
+        text: '序卷',
+        items: prefaceItem
       },
       {
-        text: '正卷',
-        items: volumeItems
+        text: '第一章　人物与龙场（第一大章）',
+        collapsed: false,
+        items: itemsByOrderRange(1, 5)
       },
       {
-        text: '附录',
-        items: appendixItems
+        text: '第二章　机行前史与行上诸器（第二大章）',
+        collapsed: false,
+        items: itemsByOrderRange(6, 12)
+      },
+      {
+        text: '第三章　心学入系统设计（第三大章）',
+        collapsed: false,
+        items: itemsByOrderRange(13, 19)
+      },
+      {
+        text: '第四章　未来论与收束（第四大章）',
+        collapsed: false,
+        items: itemsByOrderRange(20, 27)
       }
     ],
     outline: [2, 3],
