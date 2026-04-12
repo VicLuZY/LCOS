@@ -54,10 +54,10 @@ jobs:
           CODWORDS_FILE: scripts/codewords.txt
         run: node scripts/generate-build-manifest.mjs
 
-      # Latest release is v5.x but GitHub has not published a moving `v5` ref
-      # (only `v5.0.0`). Use `@v4` for a floating major until `v5` exists.
+      # No moving `v5` git ref yet (only v5.0.0). v4 emits upload-artifact
+      # Node-20 deprecation warnings that fail verify-gh-pages-deploy.mjs.
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5.0.0
         with:
           path: .vitepress/dist
 
