@@ -50,6 +50,9 @@ export default defineConfig({
   cleanUrls: false,
   themeConfig: {
     siteTitle: '龙场OS',
+    footer: {
+      copyright: '© Victor Lü, 2026'
+    },
     nav: [
       { text: '首页', link: '/' },
       { text: '从序开始', link: '/00-序' }

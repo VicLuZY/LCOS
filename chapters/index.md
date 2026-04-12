@@ -1,4 +1,10 @@
+---
+pageClass: home
+---
+
 # 《龙场OS》
+
+<div class="home-hero" role="img" aria-label="Header image: LCOS cover art (452.png)"></div>
 
 以阳明心学为 ground truth 的 agentic operating system 研究书稿。
 
@@ -47,3 +53,5 @@
 
 - [参考文献（初编）](./20-参考文献-初编.md)
 - [后记：继续扩写的路线](./21-后记-继续扩写的路线.md)
+
+<p class="home-copyright">© Victor Lü, 2026</p>
