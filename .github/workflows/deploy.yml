@@ -37,7 +37,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Check chapter CJK minimums
+      - name: Check chapter prose floors
         run: pnpm book:check-chapters
 
       - name: Build with VitePress
