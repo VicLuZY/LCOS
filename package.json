@@ -6,7 +6,8 @@
   "scripts": {
     "docs:dev": "vitepress dev .",
     "docs:build": "vitepress build .",
-    "docs:preview": "vitepress preview ."
+    "docs:preview": "vitepress preview .",
+    "book:check-chapters": "python3 scripts/check_chapter_cjk.py"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
