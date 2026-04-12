@@ -1,6 +1,7 @@
 {
   "name": "lcos",
   "private": true,
+  "license": "LicenseRef-LCOS-SVL-1.0",
   "packageManager": "pnpm@10.30.3",
   "scripts": {
     "docs:dev": "vitepress dev .",
