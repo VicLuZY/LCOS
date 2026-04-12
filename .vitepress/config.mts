@@ -37,11 +37,13 @@ const bookItems = getBookItems()
 const guideItems = bookItems.filter((item) => item.order <= 1)
 const volumeItems = bookItems.filter((item) => item.order >= 2 && item.order <= 19)
 const appendixItems = bookItems.filter((item) => item.order >= 20)
+const firstChapterLink =
+  bookItems.slice().sort((a, b) => a.order - b.order)[0]?.link ?? '/00-序卷-名法与写法'
 
 export default defineConfig({
   lang: 'zh-CN',
-  title: '龙场OS',
-  description: '以阳明心学为 ground truth 的 agentic operating system 研究书稿',
+  title: '龙场操作系统',
+  description: '《龙场操作系统》定名说字本：阳明学与机行之映照',
   base: '/LCOS/',
   appearance: 'dark',
   srcDir: 'chapters',
@@ -49,13 +51,13 @@ export default defineConfig({
   lastUpdated: false,
   cleanUrls: false,
   themeConfig: {
-    siteTitle: '龙场OS',
+    siteTitle: '龙场操作系统',
     footer: {
       copyright: '© Victor Lü, 2026'
     },
     nav: [
       { text: '首页', link: '/' },
-      { text: '从序开始', link: '/00-序' }
+      { text: '从序卷开始', link: firstChapterLink }
     ],
     sidebar: [
       {

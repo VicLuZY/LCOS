@@ -6,6 +6,17 @@ from __future__ import annotations
 import pathlib
 
 
+def strip_frontmatter(markdown: str) -> str:
+    """Remove a leading YAML block so the mother manuscript body stays single-frontmatter."""
+    text = markdown.strip()
+    if not text.startswith("---"):
+        return text
+    end = text.find("\n---\n", 3)
+    if end == -1:
+        return text
+    return text[end + len("\n---\n") :].lstrip()
+
+
 def main() -> None:
     root = pathlib.Path(__file__).resolve().parents[1]
     mother = root / "龙场OS_book_draft.md"
@@ -25,7 +36,7 @@ def main() -> None:
     for path in sorted(chapter_dir.glob("*.md"), key=lambda p: p.name):
         if path.name == "index.md":
             continue
-        parts.append(path.read_text(encoding="utf-8").strip())
+        parts.append(strip_frontmatter(path.read_text(encoding="utf-8")))
 
     mother.write_text(frontmatter + "\n\n" + "\n\n---\n\n".join(parts) + "\n", encoding="utf-8")
 
