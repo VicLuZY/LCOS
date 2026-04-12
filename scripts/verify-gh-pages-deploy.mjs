@@ -109,11 +109,22 @@ function listRunsForSha() {
 }
 
 function annotationsForRun(runId) {
-  return ghJson([
+  const jobsPayload = ghJson([
     "api",
-    `repos/${ownerRepo}/actions/runs/${runId}/annotations`,
-    "--paginate",
+    `repos/${ownerRepo}/actions/runs/${runId}/jobs?per_page=100`,
   ]);
+  const jobs = jobsPayload.jobs ?? jobsPayload;
+  const list = Array.isArray(jobs) ? jobs : [];
+  const out = [];
+  for (const job of list) {
+    const anns = ghJson([
+      "api",
+      `repos/${ownerRepo}/check-runs/${job.id}/annotations`,
+      "--paginate",
+    ]);
+    out.push(...anns);
+  }
+  return out;
 }
 
 async function main() {
@@ -133,8 +144,9 @@ async function main() {
     }
 
     const anns = annotationsForRun(success.databaseId);
-    const failures = anns.filter((a) => a.level === "failure");
-    const warnings = anns.filter((a) => a.level === "warning");
+    const level = (a) => a.annotation_level ?? a.level;
+    const failures = anns.filter((a) => level(a) === "failure");
+    const warnings = anns.filter((a) => level(a) === "warning");
     if (failures.length) {
       console.error("\nGitHub Actions annotations include failures:\n");
       console.error(JSON.stringify(failures, null, 2));
