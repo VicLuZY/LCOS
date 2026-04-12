@@ -18,13 +18,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
-      - uses: pnpm/action-setup@v5.0.0
+      - uses: pnpm/action-setup@v6
 
       - uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: lts/*
           cache: pnpm
 
       - name: Install
@@ -54,8 +54,10 @@ jobs:
           CODWORDS_FILE: scripts/codewords.txt
         run: node scripts/generate-build-manifest.mjs
 
+      # Latest release is v5.x but GitHub has not published a moving `v5` ref
+      # (only `v5.0.0`). Use `@v4` for a floating major until `v5` exists.
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v5.0.0
+        uses: actions/upload-pages-artifact@v4
         with:
           path: .vitepress/dist
 
@@ -67,4 +69,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v5.0.0
+        uses: actions/deploy-pages@v5
