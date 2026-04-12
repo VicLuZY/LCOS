@@ -7,8 +7,8 @@ import pathlib
 import re
 import sys
 
-MIN_CJK_PER_CHAPTER = 5000
-MIN_TOTAL_CJK = 100000
+MIN_CJK_PER_CHAPTER = 300
+MIN_TOTAL_CJK = 9000
 
 
 def main() -> None:
