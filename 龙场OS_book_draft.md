@@ -1,5 +1,5 @@
 ---
-title: "《龙场操作系统》"
+title: "《龙场OS》"
 subtitle: "定名说字本：阳明学与机行之映照（全书名词先立古名）"
 language: "zh-CN"
 document_type: "research_book_manuscript"
@@ -52,6 +52,7 @@ non_negotiable_style:
     - "围栏代码块、命令行、配置文件片段保持原貌"
     - "直接引用的外文论文题名、URL、标准编号保持原貌"
     - "表格、图注、术语表中的标识符以可读优先，说明文字仍须避免口语化主导"
+    - "正书名「龙场OS」以 reference/book-name.txt 为准；含拉丁字母 OS，不受「正文尽量不用裸露外文」之约约束（仅限此固定书名串，不得类推）"
   repo_invocation_token: "GZAOSEAL"
   invocation_note: >
     仓库私有口令：在 Cursor 会话、PR 描述或需要显式点名的 commit message 中写入 GZAOSEAL（全大写、无空格），

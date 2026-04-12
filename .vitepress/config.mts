@@ -4,6 +4,8 @@ import { fileURLToPath } from 'node:url'
 
 import { defineConfig, type DefaultTheme } from 'vitepress'
 
+import { markdownBookTerms } from './markdown-book-terms.js'
+
 type BookItem = DefaultTheme.SidebarItem & {
   order: number
 }
@@ -41,9 +43,14 @@ const firstChapterLink =
   bookItems.slice().sort((a, b) => a.order - b.order)[0]?.link ?? '/00-序卷-名法与写法'
 
 export default defineConfig({
+  markdown: {
+    config(md) {
+      md.use(markdownBookTerms)
+    }
+  },
   lang: 'zh-CN',
-  title: '龙场操作系统',
-  description: '《龙场操作系统》定名说字本：阳明学与机行之映照',
+  title: '龙场OS',
+  description: '《龙场OS》定名说字本：阳明学与机行之映照',
   base: '/LCOS/',
   appearance: 'dark',
   srcDir: 'chapters',
@@ -51,7 +58,7 @@ export default defineConfig({
   lastUpdated: false,
   cleanUrls: false,
   themeConfig: {
-    siteTitle: '龙场操作系统',
+    siteTitle: '龙场OS',
     footer: {
       copyright: '© Victor Lü, 2026'
     },
