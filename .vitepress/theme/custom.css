@@ -1,12 +1,90 @@
-:root {
+:root,
+.dark {
+  /* User-provided tokens */
+  --bg: #2d2725;
+  --surface: #56483f;
+  --surface-2: #777172;
+  --border: #887d79;
+  --accent: #dcb284;
+  --accent-2: #e9cca9;
+  --accent-3: #d9a572;
+  --cool-accent: #acb4c9;
+
+  /* Layout */
   --vp-layout-max-width: 1520px;
-  --vp-home-hero-name-color: var(--vp-c-text-1);
+
+  /* Core surfaces */
+  --vp-c-bg: var(--bg);
+  --vp-c-bg-alt: #241f1d;
+  --vp-c-bg-soft: #2f2927;
+
+  /* Borders / separators */
+  --vp-c-border: rgba(136, 125, 121, 0.55);
+  --vp-c-divider: rgba(136, 125, 121, 0.38);
+
+  /* Text */
+  --vp-c-text-1: #f3ece6;
+  --vp-c-text-2: rgba(243, 236, 230, 0.78);
+  --vp-c-text-3: rgba(243, 236, 230, 0.62);
+
+  /* Brand + interactive defaults */
+  --vp-c-brand-1: var(--accent);
+  --vp-c-brand-2: var(--accent-2);
+  --vp-c-brand-3: var(--accent-3);
+
+  --vp-c-default-1: var(--cool-accent);
+  --vp-c-default-2: rgba(172, 180, 201, 0.78);
+  --vp-c-default-3: rgba(172, 180, 201, 0.62);
+
+  /* Buttons (local search / theme toggles) */
+  --vp-button-brand-bg: rgba(220, 178, 132, 0.92);
+  --vp-button-brand-text: #1b1614;
+  --vp-button-brand-hover-bg: rgba(233, 204, 169, 0.92);
+
+  /* Home hero (kept coherent even though this site is doc-first) */
+  --vp-home-hero-name-color: var(--accent-2);
   --vp-home-hero-image-background-image: none;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--bg);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.42;
+  background-image:
+    radial-gradient(1200px 900px at 12% 8%, rgba(233, 204, 169, 0.18), transparent 62%),
+    radial-gradient(900px 700px at 88% 18%, rgba(172, 180, 201, 0.14), transparent 58%),
+    linear-gradient(180deg, rgba(45, 39, 37, 0.1), rgba(45, 39, 37, 0.86) 78%),
+    url('../../public/images/452.png');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: auto, auto, auto, cover;
+}
+
+.VPNav,
+.VPSidebar,
+.VPLocalNav,
+.VPNavBar {
+  background-color: rgba(86, 72, 63, 0.78);
 }
 
 .VPDoc.has-aside .content-container,
 .VPDoc .content-container {
   max-width: 780px;
+  background-color: rgba(86, 72, 63, 0.42);
+  border: 1px solid rgba(136, 125, 121, 0.45);
+  border-radius: 14px;
+  padding: 22px;
 }
 
 .VPDoc .main .content {

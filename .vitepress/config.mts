@@ -43,6 +43,7 @@ export default defineConfig({
   title: '龙场OS',
   description: '以阳明心学为 ground truth 的 agentic operating system 研究书稿',
   base: '/LCOS/',
+  appearance: 'dark',
   srcDir: 'chapters',
   outDir: '.vitepress/dist',
   lastUpdated: false,
