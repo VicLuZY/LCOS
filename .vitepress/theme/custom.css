@@ -112,29 +112,62 @@ body {
   letter-spacing: 0.02em;
 }
 
-/* 各卷定场诗：略醒目，不夺正文 */
-.VPDoc .main .content .opening-poem {
-  margin: 0.4rem 0 1.6rem;
-  padding: 1rem 1.1rem 1.15rem;
-  border-left: 3px solid rgba(220, 178, 132, 0.5);
-  border-radius: 0 10px 10px 0;
+/* 各卷定场诗：传统印本式，直排右起（列从右往左读，列内自上而下），繁体 */
+.VPDoc .main .content .opening-poem-vertical {
+  position: relative;
+  margin: 0.4rem 0 1.75rem;
+  padding: 1rem 0.85rem 1.1rem;
+  border: 1px solid rgba(220, 178, 132, 0.38);
+  border-radius: 12px;
   background: linear-gradient(
-    105deg,
-    rgba(220, 178, 132, 0.1) 0%,
-    rgba(86, 72, 63, 0.22) 55%,
-    rgba(43, 38, 36, 0.18) 100%
+    165deg,
+    rgba(220, 178, 132, 0.11) 0%,
+    rgba(86, 72, 63, 0.24) 45%,
+    rgba(43, 38, 36, 0.2) 100%
   );
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  font-family: ui-serif, "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
-  font-size: 0.98em;
-  line-height: 1.95;
-  letter-spacing: 0.06em;
-  color: rgba(243, 236, 230, 0.88);
 }
 
-.VPDoc .main .content .opening-poem .opening-poem-lines {
+.VPDoc .main .content .opening-poem-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.VPDoc .main .content .opening-poem-columns {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(0.4rem, 1.6vw, 0.95rem);
+  padding: 0.4rem 0.2rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.VPDoc .main .content .opening-poem-col {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
   margin: 0;
-  white-space: normal;
+  font-family:
+    ui-serif,
+    "Noto Serif TC",
+    "Source Han Serif TC",
+    "Songti TC",
+    "PMingLiU",
+    "Microsoft JhengHei",
+    serif;
+  font-size: clamp(0.9rem, 2.1vw, 1.04rem);
+  line-height: 1.75;
+  letter-spacing: 0.22em;
+  color: rgba(243, 236, 230, 0.92);
+  white-space: nowrap;
 }
 
 /* 名谱定名：行内 code 形态 + 悬停显示今世通称与释义 */
