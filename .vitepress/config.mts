@@ -75,22 +75,22 @@ export default defineConfig({
         items: prefaceItem
       },
       {
-        text: '第一章　人物与龙场（第一大章）',
+        text: '第一章　人物与龙场',
         collapsed: false,
         items: itemsByOrderRange(1, 5)
       },
       {
-        text: '第二章　机行前史与行上诸器（第二大章）',
+        text: '第二章　机行前史与行上诸器',
         collapsed: false,
         items: itemsByOrderRange(6, 12)
       },
       {
-        text: '第三章　心学入系统设计（第三大章）',
+        text: '第三章　心学入系统设计',
         collapsed: false,
         items: itemsByOrderRange(13, 19)
       },
       {
-        text: '第四章　未来论与收束（第四大章）',
+        text: '第四章　未来论与收束',
         collapsed: false,
         items: itemsByOrderRange(20, 20)
       }

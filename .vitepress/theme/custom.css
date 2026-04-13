@@ -112,6 +112,31 @@ body {
   letter-spacing: 0.02em;
 }
 
+/* 各卷定场诗：略醒目，不夺正文 */
+.VPDoc .main .content .opening-poem {
+  margin: 0.4rem 0 1.6rem;
+  padding: 1rem 1.1rem 1.15rem;
+  border-left: 3px solid rgba(220, 178, 132, 0.5);
+  border-radius: 0 10px 10px 0;
+  background: linear-gradient(
+    105deg,
+    rgba(220, 178, 132, 0.1) 0%,
+    rgba(86, 72, 63, 0.22) 55%,
+    rgba(43, 38, 36, 0.18) 100%
+  );
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  font-family: ui-serif, "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+  font-size: 0.98em;
+  line-height: 1.95;
+  letter-spacing: 0.06em;
+  color: rgba(243, 236, 230, 0.88);
+}
+
+.VPDoc .main .content .opening-poem .opening-poem-lines {
+  margin: 0;
+  white-space: normal;
+}
+
 /* 名谱定名：行内 code 形态 + 悬停显示今世通称与释义 */
 .VPDoc .content code.book-term,
 .home .content code.book-term {
