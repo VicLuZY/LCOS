@@ -151,22 +151,20 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Opening verse: Long Cang (Google Fonts, brush running-hand); fall back to system kai / serif. */
+/* Opening verse: Noto Serif TC first (full Traditional Chinese coverage via GF); system TC fallbacks. */
 .VPDoc .vp-doc .opening-poem-col {
   -webkit-writing-mode: vertical-rl;
   writing-mode: vertical-rl;
   text-orientation: mixed;
   margin: 0;
   font-family:
-    "Long Cang",
-    "Kaiti SC",
-    "STKaiti",
-    "KaiTi",
-    "BiauKai",
     "Noto Serif TC",
     "Source Han Serif TC",
+    "PingFang TC",
     "PMingLiU",
     "Microsoft JhengHei",
+    "Noto Sans TC",
+    ui-serif,
     serif;
   font-size: clamp(0.98rem, 2.35vw, 1.18rem);
   font-weight: 400;

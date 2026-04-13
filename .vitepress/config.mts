@@ -53,7 +53,8 @@ export default defineConfig({
       'link',
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Long+Cang&display=swap'
+        href:
+          'https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400&family=Noto+Serif+TC:wght@400;500;600&display=swap'
       }
     ]
   ],
