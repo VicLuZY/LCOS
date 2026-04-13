@@ -1,6 +1,6 @@
 /**
  * 序卷「名谱总表」：本书定名 ↔ 今世通称（enRoot）。
- * 定义列为悬停用的一行摘要，细节以 `chapters/00-序卷-名法与写法.md` 为准。
+ * 定义列为悬停用的一行摘要；与 `chapters/00-序卷-名法与写法.md` 第三节表一致。
  */
 export type BookLexiconEntry = {
   zh: string
@@ -9,38 +9,47 @@ export type BookLexiconEntry = {
 }
 
 export const BOOK_LEXICON: BookLexiconEntry[] = [
-  { zh: '格物取证', enRoot: 'RAG', def: '《大学》格物精神接入外证；于物中取其可证者。' },
-  { zh: '通器约', enRoot: 'MCP', def: '使诸器相接之大约；通而有约、接而有束。' },
-  { zh: '知行环', enRoot: 'Agent Loop', def: '知与行相互印证的往复回路；代今世所谓循环、回路。' },
-  { zh: '宿藏', enRoot: 'Persistent Memory', def: '可跨时而留、跨卷而续的深层忆藏；能成学亦能成蔽。' },
-  { zh: '文心', enRoot: 'LLM', def: '能生言成句布章之核；近心发用，不即心体。' },
-  { zh: '提衡', enRoot: 'Harness', def: '提挈诸层使之不散，又衡持进退、约束行时。' },
-  { zh: '程次', enRoot: 'Workflow', def: '有路数、有先后的程途与序列。' },
-  { zh: '行者', enRoot: 'Agent', def: '能审势、取器、反照、再动者；取其能动不止能言。' },
-  { zh: '统理', enRoot: 'Orchestration', def: '多位并行时总摄贯串、分理不乱。' },
-  { zh: '器用', enRoot: 'Tools', def: '可施行之器。' },
-  { zh: '器制', enRoot: 'Tooling', def: '围绕器用的接入、运使、留痕、审度所成法制。' },
-  { zh: '习法', enRoot: 'Skills', def: '可炼成模块、可教后学、可按需唤起的门类之术。' },
-  { zh: '忆藏', enRoot: 'Memory', def: '所记而藏；寻常忆藏之层。' },
-  { zh: '当界', enRoot: 'Context Window', def: '当前所临之界；一念所及、一时所容。' },
-  { zh: '约要', enRoot: 'Compaction', def: '约其繁而存其要，以免长程行时之后路乱。' },
-  { zh: '立据', enRoot: 'Grounding', def: '立其足、据其所凭；可治浮辞，未必治妄心。' },
-  { zh: '象库', enRoot: 'Vector Store', def: '语义索引之所蓄；藏其象。' },
-  { zh: '意纹', enRoot: 'Embeddings', def: '语义潜纹之所寓；达其意。' },
-  { zh: '试围', enRoot: 'Sandbox', def: '试其可为而以围限之。' },
-  { zh: '戒绳', enRoot: 'Guardrails', def: '戒其不可越，如绳墨可依。' },
-  { zh: '省衡', enRoot: 'Eval', def: '察而核之，又权衡衡定。' },
-  { zh: '行时', enRoot: 'Runtime', def: '系统真正运行所在之时。' },
-  { zh: '心体', enRoot: 'Principle Layer', def: '系统内在判准之本；阳明心学之核心语。' },
-  { zh: '发端语', enRoot: 'Prompt', def: '提示仅为发端，不可代工夫。' },
-  { zh: '规约', enRoot: 'Protocol', def: '有法度又有相接之束；通器约为其中一类大约。' },
-  { zh: '走失', enRoot: 'Drift', def: '行时既久而渐失本意。' },
-  { zh: '长程', enRoot: 'Long-horizon', def: '不求花样而求能久用。' },
+  /* —— 三、机行世界之定名（表列，所司何事即 def）—— */
+  { zh: '格物取证', enRoot: 'RAG', def: '自外取证，以证当前所论。' },
+  { zh: '通器约', enRoot: 'MCP', def: '诸器往来、借调、授受之约。' },
+  { zh: '稽迹簿', enRoot: 'audit log', def: '留痕以备后查之簿。' },
+  { zh: '大言机', enRoot: 'LLM', def: '善于成辞、归纳、推衍的言智根器。' },
+  { zh: '周行环', enRoot: 'agent loop', def: '见势、熟虑、发用、回照之往复环。' },
+  { zh: '义纹库', enRoot: 'vector store', def: '义纹所藏之府。' },
+  { zh: '机行', enRoot: 'agentic system', def: '能在局中持续行事的一整套系统。' },
+  { zh: '久忆', enRoot: 'persistent memory', def: '跨轮跨事久留不散的忆藏。' },
+  { zh: '当界', enRoot: 'context window', def: '此刻可容可照的边界。' },
+  { zh: '前缘', enRoot: 'context', def: '当前一切任务缘起与相关之物。' },
+  { zh: '成程', enRoot: 'workflow', def: '预铺好的做事章法。' },
+  { zh: '忆藏', enRoot: 'memory', def: '旧事、旧例、旧错、旧规所寄之府。' },
+  { zh: '提衡', enRoot: 'harness', def: '提其纲、衡其重、令其可久行的外壳骨架。' },
+  { zh: '收简', enRoot: 'compaction', def: '把长长行迹收紧为可续之骨。' },
+  { zh: '权界', enRoot: 'permissions', def: '何位能至何处的边界。' },
+  { zh: '行时', enRoot: 'runtime', def: '真正在时中流转、接事、出手之场。' },
+  { zh: '主使', enRoot: 'orchestration', def: '统众位、分轻重、总收束的调度之法。' },
+  { zh: '批允门', enRoot: 'approval gate', def: '关键处须人批允方可越门而行之制。' },
+  { zh: '机使', enRoot: 'agent', def: '承事而行的一位之体。' },
+  { zh: '发器', enRoot: 'tool call', def: '正式差遣器用出手。' },
+  { zh: '回轴', enRoot: 'rollback', def: '事失其正后退回前轴之法。' },
+  { zh: '沙匣', enRoot: 'sandbox', def: '先试手、后出界的限地。' },
+  { zh: '习法', enRoot: 'skills', def: '练熟后可再调、可传、可组的专门做法。' },
+  { zh: '器用', enRoot: 'tool', def: '可借力而成事之外器。' },
+  { zh: '省衡', enRoot: 'eval', def: '校其曲直、验其成败之法。' },
+  { zh: '义纹', enRoot: 'embedding', def: '文义之隐纹。' },
+
+  /* —— 正文仍用到的其它定名（非第三节表，或与表互补）—— */
+  { zh: '器制', enRoot: 'tooling', def: '围绕器用的接入、运使、留痕、审度所成法制。' },
+  { zh: '立据', enRoot: 'grounding', def: '立其足、据其所凭；可治浮辞，未必治妄心。' },
+  { zh: '发端语', enRoot: 'prompt', def: '提示仅为发端，不可代工夫。' },
+  { zh: '规约', enRoot: 'protocol', def: '有法度又有相接之束；通器约为其中一类大约。' },
+  { zh: '走失', enRoot: 'drift', def: '行时既久而渐失本意。' },
+  { zh: '长程', enRoot: 'long-horizon', def: '不求花样而求能久用。' },
   { zh: '智机', enRoot: 'AI', def: '序卷以「智机」代称 AI。' },
   { zh: '治制', enRoot: 'governance', def: '非一时操作，乃制度与治理之合。' },
   { zh: '论域', enRoot: 'discourse', def: '可讨论、可争辩、可立义之场域。' },
   { zh: '题务', enRoot: 'task', def: '序卷定名。' },
-  { zh: '能事', enRoot: 'capability', def: '序卷定名。' }
+  { zh: '能事', enRoot: 'capability', def: '序卷定名。' },
+  { zh: '心体', enRoot: 'principle layer', def: '系统内在判准之本；阳明心学之核心语。' }
 ]
 
 /** 最长词优先，避免「格物」截断「格物取证」等 */
