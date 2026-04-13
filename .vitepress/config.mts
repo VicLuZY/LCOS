@@ -41,7 +41,7 @@ function itemsByOrderRange(min: number, max: number): DefaultTheme.SidebarItem[]
   return bookItems.filter((item) => item.order >= min && item.order <= max)
 }
 
-/** 与母稿「四大章」分界对齐：卷五收口、卷八为第二章中枢、卷十三起第三章、卷廿起第四章。 */
+/** 与母稿分界对齐：卷五收口、卷十二收第二章、卷十三起第三章、卷二十为第四章收束。 */
 const prefaceItem = bookItems.filter((item) => item.order === 0)
 const firstChapterLink = prefaceItem[0]?.link ?? '/00-序卷-名法与写法'
 
@@ -92,7 +92,7 @@ export default defineConfig({
       {
         text: '第四章　未来论与收束（第四大章）',
         collapsed: false,
-        items: itemsByOrderRange(20, 27)
+        items: itemsByOrderRange(20, 20)
       }
     ],
     outline: [2, 3],
