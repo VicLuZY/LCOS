@@ -95,8 +95,7 @@ export default defineConfig({
         items: itemsByOrderRange(20, 20)
       }
     ],
-    outline: [2, 3],
-    outlineTitle: '本章结构',
+    outline: false,
     docFooter: {
       prev: '上一章',
       next: '下一章'
