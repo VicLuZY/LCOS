@@ -46,6 +46,17 @@ const prefaceItem = bookItems.filter((item) => item.order === 0)
 const firstChapterLink = prefaceItem[0]?.link ?? '/00-序卷-名法与写法'
 
 export default defineConfig({
+  head: [
+    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+    ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
+    [
+      'link',
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Long+Cang&display=swap'
+      }
+    ]
+  ],
   markdown: {
     config(md) {
       md.use(markdownBookTerms)
