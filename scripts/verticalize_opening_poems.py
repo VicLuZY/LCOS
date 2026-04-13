@@ -18,6 +18,17 @@ ROOT = Path(__file__).resolve().parents[1]
 CHAPTERS = ROOT / "chapters"
 CC = OpenCC("s2tw")
 
+_PUNCT_RE = re.compile(
+    r"[\s，。、；：？！…—·．「」『』《》〈〉【】〔〕"
+    r""",.;:?!'"()\[\]{}＂＇（）［］｛｝\u3000]+"""
+)
+
+
+def strip_poem_text(s: str) -> str:
+    """No 句读 in verse blocks (matches strip_poem_punctuation.py)."""
+    return _PUNCT_RE.sub("", s).strip()
+
+
 PAT = re.compile(
     r'<div class="opening-poem">\s*<p class="opening-poem-lines">(.*?)</p>\s*</div>',
     re.DOTALL,
@@ -33,7 +44,7 @@ def transform_block(inner: str) -> str | None:
             lines.append(t)
     if not lines:
         return None
-    trad_lines = [CC.convert(ln) for ln in lines]
+    trad_lines = [strip_poem_text(CC.convert(ln)) for ln in lines]
     sr = " ".join(trad_lines)
     cols = [
         "    <p class=\"opening-poem-col\">" + html.escape(ln, quote=False) + "</p>"
